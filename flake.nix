@@ -45,7 +45,11 @@
         packages.exercises = pkgs.stdenv.mkDerivation {
           name = "ghidra-how-to-exercises";
           src = ./.;
-          nativeBuildInputs = with pkgs; [ gnumake gcc ];
+          nativeBuildInputs = with pkgs; [
+            gnumake
+            gcc
+            pkgsCross.riscv32-embedded.buildPackages.gcc
+          ];
           buildPhase = ''
             make exercises
           '';
@@ -74,6 +78,7 @@
           buildInputs = with pkgs; [
             gnumake
             gcc
+            pkgsCross.riscv32-embedded.buildPackages.gcc
             typst
           ];
         };

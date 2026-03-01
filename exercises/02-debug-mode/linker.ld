@@ -1,20 +1,15 @@
-MEMORY
-{
-    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 256K
-    SRAM  (rwx) : ORIGIN = 0x20000000, LENGTH = 64K
+MEMORY {
+    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 16K
+    SRAM  (rwx) : ORIGIN = 0x20000000, LENGTH = 8K
 }
+
+ENTRY(_start)
 
 _stack_top = ORIGIN(SRAM) + LENGTH(SRAM);
 
-SECTIONS
-{
-    .isr_vector :
-    {
-        KEEP(*(.isr_vector))
-    } > FLASH
-
-    .text :
-    {
+SECTIONS {
+    .text : {
+        KEEP(*(.text._start))
         *(.text*)
         *(.rodata*)
         . = ALIGN(4);
@@ -22,8 +17,7 @@ SECTIONS
 
     _etext = .;
 
-    .data :
-    {
+    .data : {
         _sdata = .;
         *(.data*)
         . = ALIGN(4);
@@ -32,8 +26,7 @@ SECTIONS
 
     _sidata = LOADADDR(.data);
 
-    .bss (NOLOAD) :
-    {
+    .bss (NOLOAD) : {
         _sbss = .;
         *(.bss*)
         *(COMMON)
