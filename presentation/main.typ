@@ -7,7 +7,7 @@
 
 = Introduction
 
-== Why Reverse Engineer
+/*== Why Reverse Engineer
 
 - Integration: Extracting system interfaces to incorporate it into other systems
 - Replication: Developing a compatible system to replace a legacy system
@@ -20,7 +20,7 @@
 - Not just a decompiler - "reverse engineering framework"
 - Developed by the NSA since around 2003
 - Made open-source in 2019
-- Extensively vetted by the security research community
+- Extensively vetted by the security research community*/
 
 == Legal Framework
 
@@ -66,6 +66,7 @@
 == Goal
 
 - Extract a secret (password, license key, etc.) from a Linux executable
+- This secret can give us access to more functionality of the program
 - Given: ELF executable file (downloaded from a totally legit website)
 
 = 02: Debug Mode
@@ -201,6 +202,7 @@
 == Goal
 
 - TODO
+- https://github.com/aldelaro5/ghidra-ExportDwarfELFSymbols
 
 = Outlook
 
