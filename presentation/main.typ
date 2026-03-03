@@ -7,6 +7,21 @@
 
 = Introduction
 
+== Why Reverse Engineer
+
+- Integration: Extracting system interfaces to incorporate it into other systems
+- Replication: Developing a compatible system to replace a legacy system
+- Extension: Adding features to systems
+- Verification: Ensure systems function as intended without "spicy extra features"
+- Learning: Old systems can teach us what (not) to do
+
+== Background on Ghidra
+
+- Not just a decompiler - "reverse engineering framework"
+- Developed by the NSA since around 2003
+- Made open-source in 2019
+- Extensively vetted by the security research community
+
 == Legal Framework
 
 - § 202c StGB: "Hackerparagraf"
