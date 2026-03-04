@@ -39,6 +39,7 @@
           paths = [
             self.packages.${system}.exercises
             self.packages.${system}.presentation
+            self.packages.${system}.datasheet
           ];
         };
 
@@ -71,6 +72,20 @@
             mv $out out.pdf
             mkdir -p $out
             mv out.pdf $out/presentation.pdf
+          '';
+        };
+
+        packages.datasheet = tx.buildTypstProject {
+          src = ./.;
+          XDG_CACHE_HOME = typstPackagesCache;
+          typstSource = "datasheet/main.typ";
+          typstOpts = {
+            root = "./.";
+          };
+          installPhaseCommand = ''
+            mv $out out.pdf
+            mkdir -p $out
+            mv out.pdf $out/datasheet.pdf
           '';
         };
 
